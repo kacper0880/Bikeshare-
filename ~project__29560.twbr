@@ -1,0 +1,1304 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20252.25.1003.1601                               -->
+<workbook original-version='18.1' source-build='2025.2.4 (20252.25.1003.1601)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AnimationOnByDefault />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelExtractV2 />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <_.fcp.VConnDownstreamExtractsWithWarnings.true...VConnDownstreamExtractsWithWarnings />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='bikeshare_aggregated_data' inline='true' name='federated.03vx8xv073tcqp14659z50knq0y8' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='bikeshare_aggregated_data' name='textscan.08iyue50a604i91aozbfy0uwwh8d'>
+            <connection class='textscan' directory='Data/Bikeshare' filename='bikeshare_aggregated_data.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='stations_aggregate' name='excel-direct.19jvqrw06hujiu19ufs611wnss6d'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='Data/Bikeshare/stations_aggregate.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.08iyue50a604i91aozbfy0uwwh8d' name='bikeshare_aggregated_data.csv' table='[bikeshare_aggregated_data#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+              <column datatype='string' name='provider' ordinal='0' />
+              <column datatype='integer' name='ride_year' ordinal='1' />
+              <column datatype='integer' name='month' ordinal='2' />
+              <column datatype='integer' name='hour' ordinal='3' />
+              <column datatype='string' name='gender' ordinal='4' />
+              <column datatype='string' name='user_type' ordinal='5' />
+              <column datatype='integer' name='trip_count' ordinal='6' />
+              <column datatype='real' name='avg_duration' ordinal='7' />
+            </columns>
+          </relation>
+          <relation connection='excel-direct.19jvqrw06hujiu19ufs611wnss6d' name='station_aggregate' table='[station_aggregate$]' type='table'>
+            <columns gridOrigin='A1:J9385:no:A1:J9385:0' header='yes' outcome='6'>
+              <column datatype='string' name='provider' ordinal='0' />
+              <column datatype='string' name='name' ordinal='1' />
+              <column datatype='integer' name='station_id' ordinal='2' />
+              <column datatype='real' name='latitude' ordinal='3' />
+              <column datatype='real' name='longitude' ordinal='4' />
+              <column datatype='integer' name='docks' ordinal='5' />
+              <column datatype='real' name='duration_minutes' ordinal='6' />
+              <column datatype='integer' name='start_station_count' ordinal='7' />
+              <column datatype='integer' name='year' ordinal='8' />
+              <column datatype='integer' name='end_count' ordinal='9' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[avg_duration]' value='[bikeshare_aggregated_data.csv].[avg_duration]' />
+          <map key='[docks]' value='[station_aggregate].[docks]' />
+          <map key='[duration_minutes]' value='[station_aggregate].[duration_minutes]' />
+          <map key='[end_count]' value='[station_aggregate].[end_count]' />
+          <map key='[gender]' value='[bikeshare_aggregated_data.csv].[gender]' />
+          <map key='[hour]' value='[bikeshare_aggregated_data.csv].[hour]' />
+          <map key='[latitude]' value='[station_aggregate].[latitude]' />
+          <map key='[longitude]' value='[station_aggregate].[longitude]' />
+          <map key='[month]' value='[bikeshare_aggregated_data.csv].[month]' />
+          <map key='[name]' value='[station_aggregate].[name]' />
+          <map key='[provider (station!aggregate)]' value='[station_aggregate].[provider]' />
+          <map key='[provider]' value='[bikeshare_aggregated_data.csv].[provider]' />
+          <map key='[ride_year]' value='[bikeshare_aggregated_data.csv].[ride_year]' />
+          <map key='[start_station_count]' value='[station_aggregate].[start_station_count]' />
+          <map key='[station_id]' value='[station_aggregate].[station_id]' />
+          <map key='[trip_count]' value='[bikeshare_aggregated_data.csv].[trip_count]' />
+          <map key='[user_type]' value='[bikeshare_aggregated_data.csv].[user_type]' />
+          <map key='[year]' value='[station_aggregate].[year]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;£&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_GB&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>0</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:J9385:no:A1:J9385:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>provider</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[provider]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>provider</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>ride_year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[ride_year]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>ride_year</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>month</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[month]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>month</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>hour</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[hour]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>hour</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>gender</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[gender]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>gender</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>user_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[user_type]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>user_type</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RGB' />
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>trip_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[trip_count]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>trip_count</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_duration</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_duration]</local-name>
+            <parent-name>[bikeshare_aggregated_data.csv]</parent-name>
+            <remote-alias>avg_duration</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>provider</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[provider (station!aggregate)]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>provider</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RGB_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>name</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[name]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>name</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RGB_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>station_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[station_id]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>station_id</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>latitude</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[latitude]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>latitude</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>longitude</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[longitude]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>longitude</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>docks</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[docks]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>docks</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration_minutes</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[duration_minutes]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>duration_minutes</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_station_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[start_station_count]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>start_station_count</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>end_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[end_count]</local-name>
+            <parent-name>[station_aggregate]</parent-name>
+            <remote-alias>end_count</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;I8&quot;</attribute>
+            </attributes>
+            <object-id>[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Station Usage Count' datatype='integer' name='[Calculation_2080100095474364416]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([start_station_count]) + SUM([end_count])' />
+      </column>
+      <column caption='Seasons' datatype='string' name='[Calculation_2080100095479062529]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='CASE [month]&#13;&#10;    WHEN 12 THEN &quot;Winter&quot;&#13;&#10;    WHEN 1  THEN &quot;Winter&quot;&#13;&#10;    WHEN 2  THEN &quot;Winter&quot;&#13;&#10;    WHEN 3  THEN &quot;Spring&quot;&#13;&#10;    WHEN 4  THEN &quot;Spring&quot;&#13;&#10;    WHEN 5  THEN &quot;Spring&quot;&#13;&#10;    WHEN 6  THEN &quot;Summer&quot;&#13;&#10;    WHEN 7  THEN &quot;Summer&quot;&#13;&#10;    WHEN 8  THEN &quot;Summer&quot;&#13;&#10;    WHEN 9  THEN &quot;Fall&quot;&#13;&#10;    WHEN 10 THEN &quot;Fall&quot;&#13;&#10;    WHEN 11 THEN &quot;Fall&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Season Order' datatype='integer' name='[Calculation_2080100095482818562]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='CASE [Calculation_2080100095479062529]&#13;&#10;    WHEN &quot;Winter&quot; THEN 1&#13;&#10;    WHEN &quot;Spring&quot; THEN 2&#13;&#10;    WHEN &quot;Summer&quot; THEN 3&#13;&#10;    WHEN &quot;Fall&quot;   THEN 4&#13;&#10;END' />
+      </column>
+      <column caption='Stations with 0 uses' datatype='integer' name='[Calculation_2080100095484076035]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_2080100095474364416] = 0&#13;&#10;THEN 1&#13;&#10;END' />
+      </column>
+      <column caption='LoD top 5 Stations' datatype='integer' name='[Calculation_2080100095760158724]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [provider (station_aggregate.txt)], [name] : [Calculation_2080100095474364416] }' />
+      </column>
+      <column caption='Station Usage per Provider (LoD)' datatype='integer' name='[Calculation_2080100095761657861]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [provider (station_aggregate.txt)], [name] :&#13;&#10;    SUM([start_station_count]) + SUM([end_count])&#13;&#10;}' />
+      </column>
+      <column caption='Rank' datatype='integer' name='[Calculation_2080100095762644999]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='RANK_DENSE( MAX([Calculation_2080100095761657861]) , &apos;desc&apos;)'>
+          <table-calc ordering-type='Rows' />
+        </calculation>
+      </column>
+      <column caption='bikeshare_aggregated_data.csv' datatype='table' name='[__tableau_internal_object_id__].[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]' role='measure' type='quantitative' />
+      <column caption='station_aggregate' datatype='table' name='[__tableau_internal_object_id__].[station!aggregate_9CDB1AB1422A420BAC47C51C4368C934]' role='measure' type='quantitative' />
+      <column caption='Avg Duration' datatype='real' name='[avg_duration]' role='measure' type='quantitative' />
+      <column caption='Docks' datatype='integer' name='[docks]' role='measure' type='quantitative' />
+      <column caption='Duration Minutes' datatype='real' name='[duration_minutes]' role='measure' type='quantitative' />
+      <column caption='End Count' datatype='integer' name='[end_count]' role='measure' type='quantitative' />
+      <column caption='Gender' datatype='string' name='[gender]' role='dimension' type='nominal' />
+      <column caption='Hour' datatype='integer' name='[hour]' role='measure' type='quantitative' />
+      <column aggregation='Avg' caption='Latitude' datatype='real' name='[latitude]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column aggregation='Avg' caption='Longitude' datatype='real' name='[longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column caption='Month' datatype='integer' name='[month]' role='dimension' type='quantitative' />
+      <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+      <column caption='Provider (Station!Aggregate)' datatype='string' name='[provider (station!aggregate)]' role='dimension' type='nominal' />
+      <column caption='Provider (Station Aggregate.Txt)' datatype='string' name='[provider (station_aggregate.txt)]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;divvybikes&quot;' value='divvy' />
+        </aliases>
+      </column>
+      <column caption='Provider' datatype='string' name='[provider]' role='dimension' type='nominal' />
+      <column caption='Ride Year' datatype='integer' name='[ride_year]' role='dimension' type='quantitative' />
+      <column caption='Start Station Count' datatype='integer' name='[start_station_count]' role='measure' type='quantitative' />
+      <column caption='Station Id' datatype='integer' name='[station_id]' role='dimension' type='ordinal' />
+      <column caption='Trip Count' datatype='integer' name='[trip_count]' role='measure' type='quantitative' />
+      <column caption='User Type' datatype='string' name='[user_type]' role='dimension' type='nominal' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='quantitative' />
+      <group caption='Top 5 Stations per System' name='[Top 5 Stations per System]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter count='5' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+          <groupfilter direction='DESC' expression='[Calculation_2080100095474364416]' function='order' user:ui-marker='order'>
+            <groupfilter function='level-members' level='[name]' user:ui-manual-selection='true' user:ui-manual-selection-all-when-empty='true' user:ui-manual-selection-is-empty='true' user:ui-marker='enumerate' />
+          </groupfilter>
+        </groupfilter>
+      </group>
+      <extract _.fcp.VConnDownstreamExtractsWithWarnings.true...user-specific='false' count='-1' enabled='false' object-id='' units='records'>
+        <connection access_mode='readonly' author-locale='en_GB' class='hyper' dbname='Data/TableauTemp/#TableauTemp_05i7a4j0ua3v2u1h5f78k1m7rqyv.hyper' default-settings='hyper' schema='Extract' sslmode='' tablename='Extract' update-time='12/17/2025 11:29:55 AM' username='tableau_internal_user'>
+          <relation type='collection'>
+            <relation name='bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8' table='[Extract].[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]' type='table' />
+            <relation name='station_aggregate.txt_79554C1C259E421DACD2328A9347B61F' table='[Extract].[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]' type='table' />
+          </relation>
+          <cols>
+            <map key='[avg_duration]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[avg_duration]' />
+            <map key='[docks]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[docks]' />
+            <map key='[duration_minutes]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[duration_minutes]' />
+            <map key='[end_count]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[end_count]' />
+            <map key='[gender]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[gender]' />
+            <map key='[hour]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[hour]' />
+            <map key='[latitude]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[latitude]' />
+            <map key='[longitude]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[longitude]' />
+            <map key='[month]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[month]' />
+            <map key='[name]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[name]' />
+            <map key='[provider (station_aggregate.txt)]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[provider]' />
+            <map key='[provider]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[provider]' />
+            <map key='[ride_year]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[ride_year]' />
+            <map key='[start_station_count]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[start_station_count]' />
+            <map key='[station_id]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[station_id]' />
+            <map key='[trip_count]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[trip_count]' />
+            <map key='[user_type]' value='[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8].[user_type]' />
+            <map key='[year]' value='[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F].[year]' />
+          </cols>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>provider</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[provider]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>provider</remote-alias>
+              <ordinal>0</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>ride_year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[ride_year]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>ride_year</remote-alias>
+              <ordinal>1</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>month</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[month]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>month</remote-alias>
+              <ordinal>2</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>12</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>hour</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[hour]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>hour</remote-alias>
+              <ordinal>3</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>24</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>gender</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[gender]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>gender</remote-alias>
+              <ordinal>4</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>3</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>user_type</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[user_type]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>user_type</remote-alias>
+              <ordinal>5</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>8</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>trip_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[trip_count]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>trip_count</remote-alias>
+              <ordinal>6</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3196</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>avg_duration</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[avg_duration]</local-name>
+              <parent-name>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</parent-name>
+              <remote-alias>avg_duration</remote-alias>
+              <ordinal>7</ordinal>
+              <family>bikeshare_aggregated_data.csv</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>16092</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>provider</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[provider (station_aggregate.txt)]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>provider</remote-alias>
+              <ordinal>8</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>name</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[name]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>name</remote-alias>
+              <ordinal>9</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>2523</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RGB' />
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>station_id</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[station_id]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>station_id</remote-alias>
+              <ordinal>10</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1574</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>latitude</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[latitude]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>latitude</remote-alias>
+              <ordinal>11</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2523</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>longitude</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[longitude]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>longitude</remote-alias>
+              <ordinal>12</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2519</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>docks</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[docks]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>docks</remote-alias>
+              <ordinal>13</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>67</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>duration_minutes</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[duration_minutes]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>duration_minutes</remote-alias>
+              <ordinal>14</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>2299</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>start_station_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[start_station_count]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>start_station_count</remote-alias>
+              <ordinal>15</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4299</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>year</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[year]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>year</remote-alias>
+              <ordinal>16</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>4</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>end_count</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[end_count]</local-name>
+              <parent-name>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</parent-name>
+              <remote-alias>end_count</remote-alias>
+              <ordinal>17</ordinal>
+              <family>station_aggregate.txt</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>3867</approx-count>
+              <contains-null>true</contains-null>
+              <object-id>[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]</object-id>
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-aliased-fields='true' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United Kingdom&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <object-graph>
+        <objects>
+          <object caption='bikeshare_aggregated_data.csv' id='bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8'>
+            <properties context=''>
+              <relation connection='textscan.08iyue50a604i91aozbfy0uwwh8d' name='bikeshare_aggregated_data.csv' table='[bikeshare_aggregated_data#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_GB' separator=','>
+                  <column datatype='string' name='provider' ordinal='0' />
+                  <column datatype='integer' name='ride_year' ordinal='1' />
+                  <column datatype='integer' name='month' ordinal='2' />
+                  <column datatype='integer' name='hour' ordinal='3' />
+                  <column datatype='string' name='gender' ordinal='4' />
+                  <column datatype='string' name='user_type' ordinal='5' />
+                  <column datatype='integer' name='trip_count' ordinal='6' />
+                  <column datatype='real' name='avg_duration' ordinal='7' />
+                </columns>
+              </relation>
+            </properties>
+            <properties context='extract'>
+              <relation name='bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8' table='[Extract].[bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8]' type='table' />
+            </properties>
+          </object>
+          <object caption='station_aggregate' id='station!aggregate_9CDB1AB1422A420BAC47C51C4368C934'>
+            <properties context=''>
+              <relation connection='excel-direct.19jvqrw06hujiu19ufs611wnss6d' name='station_aggregate' table='[station_aggregate$]' type='table'>
+                <columns gridOrigin='A1:J9385:no:A1:J9385:0' header='yes' outcome='6'>
+                  <column datatype='string' name='provider' ordinal='0' />
+                  <column datatype='string' name='name' ordinal='1' />
+                  <column datatype='integer' name='station_id' ordinal='2' />
+                  <column datatype='real' name='latitude' ordinal='3' />
+                  <column datatype='real' name='longitude' ordinal='4' />
+                  <column datatype='integer' name='docks' ordinal='5' />
+                  <column datatype='real' name='duration_minutes' ordinal='6' />
+                  <column datatype='integer' name='start_station_count' ordinal='7' />
+                  <column datatype='integer' name='year' ordinal='8' />
+                  <column datatype='integer' name='end_count' ordinal='9' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='station_aggregate.txt' id='station_aggregate.txt_79554C1C259E421DACD2328A9347B61F'>
+            <properties context='extract'>
+              <relation name='station_aggregate.txt_79554C1C259E421DACD2328A9347B61F' table='[Extract].[station_aggregate.txt_79554C1C259E421DACD2328A9347B61F]' type='table' />
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='='>
+              <expression op='[provider]' />
+              <expression op='[provider (station!aggregate)]' />
+            </expression>
+            <first-end-point object-id='bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8' />
+            <second-end-point object-id='station!aggregate_9CDB1AB1422A420BAC47C51C4368C934' />
+          </relationship>
+          <relationship>
+            <expression op='='>
+              <expression op='[provider]' />
+              <expression op='[provider (station_aggregate.txt)]' />
+            </expression>
+            <first-end-point object-id='bikeshare_aggregated_data.csv_ED0A9B99F8FB426AAB26F140356246D8' />
+            <second-end-point object-id='station_aggregate.txt_79554C1C259E421DACD2328A9347B61F' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Heatmap'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bikeshare_aggregated_data' name='federated.03vx8xv073tcqp14659z50knq0y8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.03vx8xv073tcqp14659z50knq0y8'>
+            <column-instance column='[trip_count]' derivation='Sum' name='[sum:trip_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Trip Count' datatype='integer' name='[trip_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]' />
+              <text column='[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='has-stroke' value='false' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{DF9751B8-FE36-4A61-8143-7BE249240F03}' />
+    </worksheet>
+    <worksheet name='Ridership over months'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bikeshare_aggregated_data' name='federated.03vx8xv073tcqp14659z50knq0y8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.03vx8xv073tcqp14659z50knq0y8'>
+            <column caption='Month' datatype='integer' name='[month]' role='dimension' type='quantitative' />
+            <column-instance column='[month]' derivation='None' name='[none:month:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[trip_count]' derivation='Sum' name='[sum:trip_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Trip Count' datatype='integer' name='[trip_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Area' />
+          </pane>
+        </panes>
+        <rows>[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]</rows>
+        <cols>[federated.03vx8xv073tcqp14659z50knq0y8].[none:month:qk]</cols>
+      </table>
+      <simple-id uuid='{73933591-A0F1-482A-A495-402758F9E036}' />
+    </worksheet>
+    <worksheet name='Ridership over year'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bikeshare_aggregated_data' name='federated.03vx8xv073tcqp14659z50knq0y8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.03vx8xv073tcqp14659z50knq0y8'>
+            <column-instance column='[provider]' derivation='None' name='[none:provider:nk]' pivot='key' type='nominal' />
+            <column-instance column='[ride_year]' derivation='None' name='[none:ride_year:qk]' pivot='key' type='quantitative' />
+            <column caption='Provider' datatype='string' name='[provider]' role='dimension' type='nominal' />
+            <column caption='Ride Year' datatype='integer' name='[ride_year]' role='dimension' type='quantitative' />
+            <column-instance column='[trip_count]' derivation='Sum' name='[sum:trip_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Trip Count' datatype='integer' name='[trip_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.03vx8xv073tcqp14659z50knq0y8].[none:ride_year:qk]' included-values='in-range' />
+          <slices>
+            <column>[federated.03vx8xv073tcqp14659z50knq0y8].[none:ride_year:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]</rows>
+        <cols>[federated.03vx8xv073tcqp14659z50knq0y8].[none:ride_year:qk]</cols>
+      </table>
+      <simple-id uuid='{34B8A3F5-7661-483B-877B-9F98FFDE4B1D}' />
+    </worksheet>
+    <worksheet name='Station Map'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bikeshare_aggregated_data' name='federated.03vx8xv073tcqp14659z50knq0y8' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.03vx8xv073tcqp14659z50knq0y8'>
+            <column-instance column='[latitude]' derivation='Avg' name='[avg:latitude:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[longitude]' derivation='Avg' name='[avg:longitude:qk]' pivot='key' type='quantitative' />
+            <column aggregation='Avg' caption='Latitude' datatype='real' name='[latitude]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+            <column aggregation='Avg' caption='Longitude' datatype='real' name='[longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+            <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[provider (station_aggregate.txt)]' derivation='None' name='[none:provider (station_aggregate.txt):nk]' pivot='key' type='nominal' />
+            <column caption='Provider (Station Aggregate.Txt)' datatype='string' name='[provider (station_aggregate.txt)]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;divvybikes&quot;' value='divvy' />
+              </aliases>
+            </column>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]'>
+            <groupfilter function='level-members' level='[none:provider (station_aggregate.txt):nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.03vx8xv073tcqp14659z50knq0y8].[avg:longitude:qk]' field-type='quantitative' max='-8712084.8124714531' min='-14580122.614927119' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.03vx8xv073tcqp14659z50knq0y8].[avg:latitude:qk]' field-type='quantitative' max='6029013.3502725279' min='2882197.3115934045' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]' />
+              <lod column='[federated.03vx8xv073tcqp14659z50knq0y8].[none:name:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.03vx8xv073tcqp14659z50knq0y8].[avg:latitude:qk]</rows>
+        <cols>[federated.03vx8xv073tcqp14659z50knq0y8].[avg:longitude:qk]</cols>
+      </table>
+      <simple-id uuid='{91F2C056-587F-42F3-83B2-3A2E4AA7EE9A}' />
+    </worksheet>
+    <worksheet name='Station Usage'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bikeshare_aggregated_data' name='federated.03vx8xv073tcqp14659z50knq0y8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.03vx8xv073tcqp14659z50knq0y8'>
+            <column caption='Station Usage Count' datatype='integer' name='[Calculation_2080100095474364416]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([start_station_count]) + SUM([end_count])' />
+            </column>
+            <column caption='LoD top 5 Stations' datatype='integer' name='[Calculation_2080100095760158724]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [provider (station_aggregate.txt)], [name] : [Calculation_2080100095474364416] }' />
+            </column>
+            <column caption='Station Usage per Provider (LoD)' datatype='integer' name='[Calculation_2080100095761657861]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [provider (station_aggregate.txt)], [name] :&#13;&#10;    SUM([start_station_count]) + SUM([end_count])&#13;&#10;}' />
+            </column>
+            <column caption='Rank' datatype='integer' name='[Calculation_2080100095762644999]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='RANK_DENSE( MAX([Calculation_2080100095761657861]) , &apos;desc&apos;)'>
+                <table-calc ordering-type='Rows' />
+              </calculation>
+            </column>
+            <column caption='End Count' datatype='integer' name='[end_count]' role='measure' type='quantitative' />
+            <column caption='Name' datatype='string' name='[name]' role='dimension' type='nominal' />
+            <column-instance column='[name]' derivation='None' name='[none:name:nk]' pivot='key' type='nominal' />
+            <column-instance column='[provider (station_aggregate.txt)]' derivation='None' name='[none:provider (station_aggregate.txt):nk]' pivot='key' type='nominal' />
+            <column caption='Provider (Station Aggregate.Txt)' datatype='string' name='[provider (station_aggregate.txt)]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;divvybikes&quot;' value='divvy' />
+              </aliases>
+            </column>
+            <column caption='Start Station Count' datatype='integer' name='[start_station_count]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_2080100095760158724]' derivation='Sum' name='[sum:Calculation_2080100095760158724:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2080100095474364416]' derivation='User' name='[usr:Calculation_2080100095474364416:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2080100095762644999]' derivation='User' name='[usr:Calculation_2080100095762644999:qk:1]' pivot='key' type='quantitative'>
+              <table-calc ordering-field='[federated.03vx8xv073tcqp14659z50knq0y8].[none:name:nk]' ordering-type='Field' />
+            </column-instance>
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]' context='true'>
+            <groupfilter function='level-members' level='[none:provider (station_aggregate.txt):nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.03vx8xv073tcqp14659z50knq0y8].[sum:Calculation_2080100095760158724:qk]' included-values='in-range'>
+            <min>5</min>
+            <max>727846</max>
+          </filter>
+          <filter class='quantitative' column='[federated.03vx8xv073tcqp14659z50knq0y8].[usr:Calculation_2080100095762644999:qk:1]' included-values='in-range'>
+            <min>1</min>
+            <max>2645</max>
+          </filter>
+          <slices>
+            <column>[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]</column>
+            <column>[federated.03vx8xv073tcqp14659z50knq0y8].[usr:Calculation_2080100095762644999:qk:1]</column>
+            <column>[federated.03vx8xv073tcqp14659z50knq0y8].[sum:Calculation_2080100095760158724:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.03vx8xv073tcqp14659z50knq0y8].[usr:Calculation_2080100095474364416:qk]</rows>
+        <cols>[federated.03vx8xv073tcqp14659z50knq0y8].[none:name:nk]</cols>
+      </table>
+      <simple-id uuid='{C13F236C-BA32-485C-8893-06C10FA5B049}' />
+    </worksheet>
+    <worksheet name='Trip Count by Season'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bikeshare_aggregated_data' name='federated.03vx8xv073tcqp14659z50knq0y8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.03vx8xv073tcqp14659z50knq0y8'>
+            <column caption='Seasons' datatype='string' name='[Calculation_2080100095479062529]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='CASE [month]&#13;&#10;    WHEN 12 THEN &quot;Winter&quot;&#13;&#10;    WHEN 1  THEN &quot;Winter&quot;&#13;&#10;    WHEN 2  THEN &quot;Winter&quot;&#13;&#10;    WHEN 3  THEN &quot;Spring&quot;&#13;&#10;    WHEN 4  THEN &quot;Spring&quot;&#13;&#10;    WHEN 5  THEN &quot;Spring&quot;&#13;&#10;    WHEN 6  THEN &quot;Summer&quot;&#13;&#10;    WHEN 7  THEN &quot;Summer&quot;&#13;&#10;    WHEN 8  THEN &quot;Summer&quot;&#13;&#10;    WHEN 9  THEN &quot;Fall&quot;&#13;&#10;    WHEN 10 THEN &quot;Fall&quot;&#13;&#10;    WHEN 11 THEN &quot;Fall&quot;&#13;&#10;END' />
+            </column>
+            <column caption='Month' datatype='integer' name='[month]' role='dimension' type='quantitative' />
+            <column-instance column='[Calculation_2080100095479062529]' derivation='None' name='[none:Calculation_2080100095479062529:nk]' pivot='key' type='nominal' />
+            <column-instance column='[trip_count]' derivation='Sum' name='[sum:trip_count:qk]' pivot='key' type='quantitative' />
+            <column caption='Trip Count' datatype='integer' name='[trip_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.03vx8xv073tcqp14659z50knq0y8].[none:Calculation_2080100095479062529:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]' shelf='rows' />
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Bar' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.03vx8xv073tcqp14659z50knq0y8].[none:Calculation_2080100095479062529:nk]</rows>
+        <cols>[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]</cols>
+      </table>
+      <simple-id uuid='{8E9AD99F-8DD9-40AB-8052-6BE6634E2319}' />
+    </worksheet>
+    <worksheet name='Trip Count by System'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='bikeshare_aggregated_data' name='federated.03vx8xv073tcqp14659z50knq0y8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.03vx8xv073tcqp14659z50knq0y8'>
+            <column-instance column='[trip_count]' derivation='Avg' name='[avg:trip_count:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[provider]' derivation='None' name='[none:provider:nk]' pivot='key' type='nominal' />
+            <column caption='Provider' datatype='string' name='[provider]' role='dimension' type='nominal' />
+            <column caption='Trip Count' datatype='integer' name='[trip_count]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.03vx8xv073tcqp14659z50knq0y8].[:Measure Names]'>
+            <groupfilter function='level-members' level='[:Measure Names]' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.03vx8xv073tcqp14659z50knq0y8].[avg:trip_count:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.03vx8xv073tcqp14659z50knq0y8].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>[federated.03vx8xv073tcqp14659z50knq0y8].[avg:trip_count:qk]</rows>
+        <cols>[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider:nk]</cols>
+      </table>
+      <simple-id uuid='{19A1FBEB-1B73-4EC9-86D7-3212922425C6}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='Trip Count by System'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{A2145D80-FAB6-45A5-A2FB-094F764A7284}' />
+    </window>
+    <window class='worksheet' name='Ridership over year'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{6BABF212-E21B-4FE5-BEE9-18C0F061FB57}' />
+    </window>
+    <window class='worksheet' name='Ridership over months'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D7A321CC-4531-4DFC-AEA3-507E3BC4AA33}' />
+    </window>
+    <window class='worksheet' name='Trip Count by Season'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A59CCCBF-8BCB-48E9-9CF3-22ECE7569C56}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Station Usage'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{77A6D733-3D86-4A9B-97E6-DB5B916AD0BA}' />
+    </window>
+    <window class='worksheet' name='Station Map'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card param='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]' type='filter' />
+            <card pane-specification-id='0' param='[federated.03vx8xv073tcqp14659z50knq0y8].[none:provider (station_aggregate.txt):nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{A3B4AFD2-63D5-4733-98E1-E80997F9F627}' />
+    </window>
+    <window class='worksheet' name='Heatmap'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.03vx8xv073tcqp14659z50knq0y8].[sum:trip_count:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{EADADF7F-9CAA-4484-9491-69F74C6F31EB}' />
+    </window>
+  </windows>
+</workbook>
